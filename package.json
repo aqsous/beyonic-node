@@ -1,15 +1,18 @@
 {
   "name": "beyonic-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A node module for interracting with Beyonic [https://beyonic.com] APIs",
   "main": "beyonic.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "skyline",
-    "sms",
-    "text",
+    "beyonic",
+    "phone",
+    "phone payment",
+    "payment",
+    "payment gateway",
+    "gateway",
     "message"
   ],
   "author": "Adham Goussus <adham.goussous@gmail.com",
