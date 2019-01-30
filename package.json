@@ -1,6 +1,6 @@
 {
   "name": "beyonic-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node module for interracting with Beyonic [https://beyonic.com] APIs",
   "main": "beyonic.js",
   "scripts": {
@@ -14,7 +14,7 @@
   ],
   "author": "Adham Goussus <adham.goussous@gmail.com",
   "license": "MIT",
-  "repository": "https://github.com/assekalala/beyonic-node.git",
+  "repository": "https://github.com/aqsous/beyonic-node.git",
   "dependencies": {
     "request": "2.88.0",
     "request-promise": "4.2.2"
