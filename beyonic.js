@@ -6,12 +6,6 @@ const Payments = require('./apis/payments')
 
 class Beyonic {
 
-    _auth;
-    accounts;
-    contacts;
-    collectionRequests;
-    payments;
-
     constructor(apiKey) {
         if (apiKey){
             this._auth = "Token " + apiKey;

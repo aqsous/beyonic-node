@@ -2,14 +2,12 @@ const request = require('request-promise')
 
 class CollectionRequests {
 
-    auth
-
     constructor(auth) {
         this.auth = auth;
     }
 
-    create = (phoneNumber, currency, amount, metadata, sendInstructions) => {
-        if (!auth) {
+    async create(phoneNumber, currency, amount, metadata, sendInstructions) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -18,7 +16,7 @@ class CollectionRequests {
             url: 'https://app.beyonic.com/api/collectionrequests',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: {
                 'phonenumber': phoneNumber,
@@ -31,8 +29,8 @@ class CollectionRequests {
         return await request(options)
     }
 
-    get = id => {
-        if (!auth) {
+    async get(id) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -41,15 +39,14 @@ class CollectionRequests {
             url: 'https://app.beyonic.com/api/collectionsrequests' + id,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             }
         }
         return await request(options)
     }
     
-
-    get = () => {
-        if (!auth) {
+    async get() {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -58,7 +55,7 @@ class CollectionRequests {
             url: 'https://app.beyonic.com/api/collectionsrequests',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             }
         }
         return await request(options)

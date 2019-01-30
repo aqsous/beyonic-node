@@ -1,13 +1,12 @@
 const request = require('request-promise')
 
-class Accounts {
-    auth
+let Accounts = class  {
 
     constructor(auth) {
         this.auth = auth;
     }
 
-    get = async id => {
+    async get(id) {
         if (!auth) {
             throw new Error("No Authorization was provided")
         }
@@ -23,7 +22,7 @@ class Accounts {
         return await request(options);
     }
 
-    list = () => {
+    async list() {
         if (!auth) {
             throw new Error("No Authorization was provided")
         }

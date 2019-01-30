@@ -2,13 +2,11 @@ const request = require('request-promise')
 
 class Contacts {
 
-    auth
-
     constructor(auth) {
         this.auth = auth;
     }
 
-    create = (firstName, lastName, phoneNumber, email, metadata) => {
+    async create(firstName, lastName, phoneNumber, email, metadata) {
         if (!auth) {
             throw new Error("No Authorization was provided")
         }
@@ -31,7 +29,7 @@ class Contacts {
         return await request(options);
     }
 
-    get = id => {
+    async get(id) {
         if (!auth) {
             throw new Error("No Authorization was provided")
         }
@@ -47,14 +45,14 @@ class Contacts {
         return await request(options);
     }
 
-    list = () => {
+    async list() {
         if (!auth) {
             throw new Error("No Authorization was provided")
         }
 
         var options = {
             method: 'GET',
-            url: 'https://app.beyonic.com/api/contacts' ,
+            url: 'https://app.beyonic.com/api/contacts',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': auth

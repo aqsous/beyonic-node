@@ -2,14 +2,12 @@ const request = require('request-promise')
 
 class Payments {
 
-    auth
-
     constructor(auth) {
         this.auth = auth;
     }
 
-    create = (phoneNumber, firstName, lastName, currency, amount, account, description, callbackUrl, paymentType) => {
-        if(!auth) {
+    async create(phoneNumber, firstName, lastName, currency, amount, account, description, callbackUrl, paymentType) {
+        if(!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -18,7 +16,7 @@ class Payments {
             url: 'https://app.beyonic.com/api/payments/' + id,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: {
                 'phonenumber': phoneNumber,
@@ -35,9 +33,9 @@ class Payments {
         return await request(options);
     }
 
-    get = id => {
-        if(!auth) {
-            throw new Error("No Authorization was provided")
+    async get(id) {
+        if(!this.auth) {
+            throw new Error("No Authorization was provided");
         }
     
         var options = {
@@ -45,14 +43,14 @@ class Payments {
             url: 'https://app.beyonic.com/api/payments/' + id,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             }
         }
         return await request(options);
     }
 
-    get = () => {
-        if(!auth) {
+    async get() {
+        if(!this.auth) {
             throw new Error("No Authorization was provided")
         }
     
@@ -61,7 +59,7 @@ class Payments {
             url: 'https://app.beyonic.com/api/payments',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             }
         }
         return await request(options);

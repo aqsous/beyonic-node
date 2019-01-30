@@ -1,6 +1,6 @@
 {
   "name": "beyonic-node",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A node module for interracting with Beyonic [https://beyonic.com] APIs",
   "main": "beyonic.js",
   "scripts": {
