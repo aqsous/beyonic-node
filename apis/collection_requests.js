@@ -36,16 +36,17 @@ class CollectionRequests {
 
         var options = {
             method: 'GET',
-            url: 'https://app.beyonic.com/api/collectionsrequests' + id,
+            url: 'https://app.beyonic.com/api/collectionsrequests/' + id,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
-            }
+            },
+            json: true
         }
         return await request(options)
     }
     
-    async get() {
+    async list() {
         if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
@@ -56,7 +57,8 @@ class CollectionRequests {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
-            }
+            },
+            json: true
         }
         return await request(options)
     }

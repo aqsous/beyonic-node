@@ -40,7 +40,8 @@ class Contacts {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': auth
-            }
+            },
+            json: true
         }
         return await request(options);
     }
@@ -56,7 +57,8 @@ class Contacts {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': auth
-            }
+            },
+            json: true
         }
         return await request(options);
     }

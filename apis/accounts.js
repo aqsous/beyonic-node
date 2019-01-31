@@ -17,7 +17,8 @@ let Accounts = class  {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': auth
-            }
+            },
+            json: true
         }
         return await request(options);
     }
@@ -33,7 +34,8 @@ let Accounts = class  {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': auth
-            }
+            },
+            json: true
         }
         return await request(options);
     }

@@ -44,7 +44,8 @@ class Payments {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
-            }
+            },
+            json: true
         }
         return await request(options);
     }
@@ -60,7 +61,8 @@ class Payments {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
-            }
+            },
+            json: true
         }
         return await request(options);
     }
