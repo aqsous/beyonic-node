@@ -7,7 +7,7 @@ let Accounts = class  {
     }
 
     async get(id) {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
     
@@ -16,7 +16,7 @@ let Accounts = class  {
             url: 'https://app.beyonic.com/api/accounts/' + id,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: true
         }
@@ -24,7 +24,7 @@ let Accounts = class  {
     }
 
     async list() {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
     
@@ -33,7 +33,7 @@ let Accounts = class  {
             url: 'https://app.beyonic.com/api/accounts',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: true
         }

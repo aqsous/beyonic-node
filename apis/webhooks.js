@@ -1,3 +1,4 @@
+const request = require('request-promise')
 
 class Webhooks {
 
@@ -26,7 +27,7 @@ class Webhooks {
     }
 
     async get(id) {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
     
@@ -35,7 +36,7 @@ class Webhooks {
             url: 'https://app.beyonic.com/api/webhooks/' + id,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: true
         }
@@ -43,7 +44,7 @@ class Webhooks {
     }
 
     async list() {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
     
@@ -52,7 +53,7 @@ class Webhooks {
             url: 'https://app.beyonic.com/api/webhooks',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: true
         }
@@ -96,3 +97,5 @@ class Webhooks {
         return await request(options)
     }
 }
+
+module.exports = Webhooks;

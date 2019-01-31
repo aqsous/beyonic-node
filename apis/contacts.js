@@ -7,7 +7,7 @@ class Contacts {
     }
 
     async create(firstName, lastName, phoneNumber, email, metadata) {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -16,7 +16,7 @@ class Contacts {
             url: 'https://app.beyonic.com/api/contacts',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: {
                 'first_name': firstName,
@@ -30,7 +30,7 @@ class Contacts {
     }
 
     async get(id) {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -39,7 +39,7 @@ class Contacts {
             url: 'https://app.beyonic.com/api/contacts/' + id,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: true
         }
@@ -47,7 +47,7 @@ class Contacts {
     }
 
     async list() {
-        if (!auth) {
+        if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
 
@@ -56,7 +56,7 @@ class Contacts {
             url: 'https://app.beyonic.com/api/contacts',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': auth
+                'Authorization': this.auth
             },
             json: true
         }
