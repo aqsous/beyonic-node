@@ -36,7 +36,7 @@ class CollectionRequests {
 
         var options = {
             method: 'GET',
-            url: 'https://app.beyonic.com/api/collectionsrequests/' + id,
+            url: 'https://app.beyonic.com/api/collectionrequests/' + id,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
