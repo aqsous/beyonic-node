@@ -13,7 +13,7 @@ class Payments {
 
         var options = {
             method: 'POST',
-            url: 'https://app.beyonic.com/api/payments/' + id,
+            url: 'https://app.beyonic.com/api/payments',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
