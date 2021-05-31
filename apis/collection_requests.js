@@ -6,7 +6,7 @@ class CollectionRequests {
         this.auth = auth;
     }
 
-    async create(phoneNumber, currency, amount, metadata, sendInstructions) {
+    async create(phoneNumber, currency, amount, metadata, sendInstructions, first_name, last_name) {
         if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
@@ -23,7 +23,9 @@ class CollectionRequests {
                 'currency': currency,
                 'amount': amount,
                 'metadata': metadata,
-                'send_instructions': sendInstructions
+                'send_instructions': sendInstructions,
+                'first_name': first_name,
+                'last_name': last_name
             }
         }
         return await request(options)
