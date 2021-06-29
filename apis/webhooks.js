@@ -43,14 +43,14 @@ class Webhooks {
         return await request(options);
     }
 
-    async list() {
+    async list(offset = 0) {
         if (!this.auth) {
             throw new Error("No Authorization was provided")
         }
     
         var options = {
             method: 'GET',
-            url: 'https://app.beyonic.com/api/webhooks',
+            url: `https://app.beyonic.com/api/webhooks?offset=${offset}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': this.auth
